@@ -97,6 +97,8 @@ A sample website created for a local church concept with structured content and 
 * Clean navigation
 * User-friendly layout
 
+🔗 Repository: [Church-Website](https://github.com/Kate23Mpofu/Church-Website)
+
 ---
 
 ## 🎮 Hangman Game

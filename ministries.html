@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W78XEQSN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9W78XEQSN4');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Ministries - Mughodi Trust Church</title>
+  <link rel="shortcut icon" href="images/mugodhiTrustChurch/church-logo.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="styles/mugodhiTrustChurchCSS/ministries.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/mugodhiTrustChurch/church-logo.jpg" alt="Church Logo" class="navbar-logo">
+      <span class="navbar-title">Mughodi Trust Church</span>
+    </div>
+
+    <!-- hamburger toggle -->
+    <div class="navbar-toggle" id="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- dropdown menu -->
+    <div class="navbar-center" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="home.html"><i class="fas fa-home hollow"></i> Home</a></li>
+        <li><a href="about-us.html"><i class="far fa-heart"></i> About</a></li>
+        <li><a href="sermons.html"><i class="fas fa-book hollow"></i> Sermons</a></li>
+        <li><a href="events.html"><i class="far fa-calendar"></i> Events</a></li>
+        <li><a href="ministries.html" class="active-tab"><i class="far fa-user"></i> Ministries</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone hollow"></i> Contact</a></li>
+        <button onclick="location.href='contact.html#contactForm'" class="navbar-plan-btn">Plan Your Visit</button>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- welcome section -->
+  <div class="welcome-section">
+    <img src="images/mugodhiTrustChurch/ministries.jpg" alt="Back Image" class="back-video">
+    <div class="welcome">
+      <h1>Our Ministries</h1>
+      <p>Discover the various ways you can get involved, grow in faith, and serve others in our church community.
+      </p>
+    </div>
+  </div>
+
+  <!-- ministries overview -->
+  <section class="section-ministries-overview">
+    <div class="container">
+      <div class="overview-header">
+        <h2>Ministry Areas</h2>
+        <p>Find your place to belong and serve</p>
+      </div>
+      <div class="ministries-grid">
+
+        <a href="#youth" class="ministry-card youth">
+          <div class="ministry-image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Youth Ministry" class="ministry-image" />
+            <div class="ministry-overlay"></div>
+            <h3>Youth Ministry</h3>
+          </div>
+          <p>Empowering young people to grow in their faith and develop...</p>
+        </a>
+
+        <a href="#children" class="ministry-card kids">
+          <div class="ministry-image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Children's Ministry" class="ministry-image" />
+            <div class="ministry-overlay amber"></div>
+            <h3>Children's Ministry</h3>
+          </div>
+          <p>Creating a fun, safe environment where children can learn about ...</p>
+        </a>
+
+        <a href="#men" class="ministry-card men">
+          <div class="ministry-image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Men's Ministry" class="ministry-image" />
+            <div class="ministry-overlay gray"></div>
+            <h3>Men's Ministry</h3>
+          </div>
+          <p>Equipping men to be godly leaders in their homes, church, and ...</p>
+        </a>
+
+        <a href="#women" class="ministry-card women">
+          <div class="ministry-image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Women's Ministry" class="ministry-image" />
+            <div class="ministry-overlay pink"></div>
+            <h3>Women's Ministry</h3>
+          </div>
+          <p>Encouraging women to deepen their relationship with God and ...</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="men" class="individual-ministry-section autoShow">
+    <div class="container fadeUp">
+      <div class="individual-ministry-grid">
+        <div class="text-content">
+          <span class="ministry-label">Ministry</span>
+          <h2>Men's Ministry</h2>
+          <p>Building strong Christian men who lead with integrity, serve with purpose, and impact their communities.
+          </p>
+          <div class="info-grid">
+            <div>
+              <h3>Leader:</h3>
+              <p>Tony Sibanda</p>
+            </div>
+            <div>
+              <h3>Age Group:</h3>
+              <p>18+ years</p>
+            </div>
+          </div>
+          <h3>Meeting Time</h3>
+          <p>Second Saturday 8:00 AM</p>
+          <h3>Activities & Programs</h3>
+          <ul class="activity-list">
+            <li>Monthly breakfast meetings</li>
+            <li>Men's conferences and retreats</li>
+            <li>Mentoring Program</li>
+            <li>Service Projects</li>
+          </ul>
+          <div class="buttons-group">
+            <button onclick="location.href='contact.html#contactForm'" class="btn-primary">Get Involved</button>
+            <button class="btn-secondary"
+              onclick="location.href='mailto:sibandatony@mughoditrust.org?subject=Men%27s%20Ministry%20Inquiry'">Contact
+              Leader</button>
+          </div>
+        </div>
+        <div class="image-content">
+          <img
+            src="https://images.unsplash.com/photo-1589463779377-26cb6db03a35?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0"
+            alt="Men's Ministry" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="women" class="individual-ministry-section autoShow">
+    <div class="container fadeUp">
+      <div class="individual-ministry-grid ">
+        <div class="image-content">
+          <img
+            src="https://images.unsplash.com/photo-1725245997915-f9ef3912267f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0"
+            alt="Women's Ministry" />
+        </div>
+        <div class="text-content">
+          <span class="ministry-label">Ministry</span>
+          <h2>Women Ministry</h2>
+          <p>A supportive community for women to grow spiritually, build relationships, and serve others with purpose.
+          </p>
+          <div class="info-grid">
+            <div>
+              <h3>Leader:</h3>
+              <p>Pastor Grace Mughodi</p>
+            </div>
+            <div>
+              <h3>Age Group:</h3>
+              <p>18+ years</p>
+            </div>
+          </div>
+          <h3>Meeting Time</h3>
+          <p>Saturdays 2:00 PM</p>
+          <h3>Activities & Programs</h3>
+          <ul class="activity-list">
+            <li>Bible study and prayer groups</li>
+            <li>Women's conferences and retreats</li>
+            <li>Prayer Groups</li>
+            <li>Community Outreach</li>
+          </ul>
+          <div class="buttons-group">
+            <button onclick="location.href='contact.html#contactForm'" class="btn-primary">Get Involved</button>
+            <button class="btn-secondary"
+              onclick="location.href='mailto:pastorgrace@mughoditrust.org?subject=Women%27s%20Ministry%20Inquiry'">Contact
+              Leader</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="youth" class="individual-ministry-section autoShow">
+    <div class="container fadeUp">
+      <div class="individual-ministry-grid">
+        <div class="text-content">
+          <span class="ministry-label">Ministry</span>
+          <h2>Youth Ministry</h2>
+          <p>Empowering young people to grow in their faith and develop their God-given potential through discipleship,
+            fellowship, and service.</p>
+          <div class="info-grid">
+            <div>
+              <h3>Leader:</h3>
+              <p>Ruth Mpofu</p>
+            </div>
+            <div>
+              <h3>Age Group:</h3>
+              <p>13 - 21 years</p>
+            </div>
+          </div>
+          <h3>Meeting Time</h3>
+          <p>Fridays 7:00 PM</p>
+          <h3>Activities & Programs</h3>
+          <ul class="activity-list">
+            <li>Weekly Youth Night</li>
+            <li>Annual Youth Camp</li>
+            <li>Mission Trips</li>
+            <li>Leadership Development</li>
+          </ul>
+          <div class="buttons-group">
+            <button onclick="location.href='contact.html#contactForm'" class="btn-primary">Get Involved</button>
+            <button class="btn-secondary"
+              onclick="location.href='mailto:mpofuruth@mughoditrust.org?subject=Youth%27s%20Ministry%20Inquiry'">Contact
+              Leader</button>
+          </div>
+        </div>
+        <div class="image-content">
+          <img
+            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+            alt="Youth Ministry" class="rounded-lg shadow-md w-full">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="children" class="individual-ministry-section autoShow">
+    <div class="container fadeUp">
+      <div class="individual-ministry-grid ">
+        <div class="image-content">
+          <img
+            src="https://images.unsplash.com/photo-1588075592405-d3d4f0846961?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Children's Ministry" class="rounded-lg shadow-md w-full">
+        </div>
+        <div class="text-content">
+          <span class="ministry-label">Ministry</span>
+          <h2>Children's Ministry</h2>
+          <p>Creating a fun and safe environment where children can learn about God's love through age-appropriate
+            activities.</p>
+          <div class="info-grid">
+            <div>
+              <h3>Leader:</h3>
+              <p>Sandra Sithole</p>
+            </div>
+            <div>
+              <h3>Age Group:</h3>
+              <p>3 - 12 years</p>
+            </div>
+          </div>
+          <h3>Meeting Time</h3>
+          <p>Sundays during service</p>
+          <h3>Activities & Programs</h3>
+          <ul class="activity-list">
+            <li>Sunday School classes</li>
+            <li>Bible stories and lessons</li>
+            <li>Fun family days</li>
+            <li>Children's choir</li>
+          </ul>
+          <div class="buttons-group">
+            <button onclick="location.href='contact.html#contactForm'" class="btn-primary">Get Involved</button>
+            <button class="btn-secondary"
+              onclick="location.href='mailto:sandra@mughoditrust.org?subject=Children%27s%20Ministry%20Inquiry'">Contact
+              Leader</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- additional ministries -->
+  <section class="additional-ministries">
+    <div class="container fadeUp">
+      <div class="overview-header">
+        <h2>Additional Ministries</h2>
+        <p>Other ways to serve and connect</p>
+      </div>
+      <div class="additional-grid">
+        <div class="additional-card">
+          <div class="icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+            </svg>
+          </div>
+          <h3>Worship Team</h3>
+          <p>Use your musical talents to lead the congregation in worship and create an atmosphere for encountering God.
+          </p>
+        </div>
+
+        <div class="additional-card">
+          <div class="icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+            </svg>
+          </div>
+          <h3>Prayer Ministry</h3>
+          <p>Join our intercessory prayer team to support the church, community, and world through dedicated prayer.</p>
+        </div>
+
+        <div class="additional-card">
+          <div class="icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg>
+          </div>
+          <h3>Missions</h3>
+          <p>Support and participate in local and global mission efforts to share the love of Christ with those in need.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- get involved CTA -->
+  <section class="cta-section">
+    <div class="container cta-content">
+      <h2>Ready to Serve?</h2>
+      <p>Join one of our ministries and make a difference in the church and community.</p>
+      <button onclick="location.href='contact.html#contactForm'" class="btn-primary btn-large">Get Involved</button>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="autoShow">
+    <div class="footer-container ">
+      <div class="footer-column">
+        <h4>Mughodi Trust Church</h4>
+        <p>A place of worship, community, and spiritual growth. Join us as we walk together in faith and love.</p>
+        <p><i class="fas fa-location-pin hollow"></i> 123 Pearce St, Olifantsfontein</p>
+        <p><i class="fas fa-phone hollow"></i> +27 673 346 2736</p>
+        <p><i class="far fa-envelope"></i> info@mughoditrust.org</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html">Events</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Our Ministries</h4>
+        <a href="ministries.html#youth">Youth Ministry</a>
+        <a href="ministries.html#children">Children's Ministry</a>
+        <a href="ministries.html#women">Women's Ministry</a>
+        <a href="ministries.html#men">Men's Ministry</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Service Times</h4>
+        <p><b>Service Worship:</b> 9:00 AM</p>
+        <p><b>Bible Study:</b> 7:00 PM</p>
+        <p><b>Prayer Meeting:</b> Fri 6:00 AM</p>
+
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook social-icon hollow"></i></a>
+          <a href="#"><i class="fab fa-instagram social-icon hollow"></i></a>
+          <a href="#"><i class="fab fa-twitter social-icon hollow"></i></a>
+          <a href="#"><i class="fab fa-youtube social-icon hollow"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mughodi Trust Church. All rights reserved. Made with <i class="far fa-heart" style="color:red"></i>
+        for God's Kingdom</p>
+    </div>
+  </footer>
+
+  <script>
+    function navigateToForm() {
+      window.location.href = 'contact.html?scrollTo=contactForm';
+    }
+  </script>
+  <script src="scripts/mugodhiTrustChurchScripts/ministries.js"></script>
+</body>
+
+</html>

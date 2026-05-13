@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W78XEQSN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-9W78XEQSN4');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Mughodi Trust Church</title>
+  <link rel="shortcut icon" href="images/mugodhiTrustChurch/church-logo.jpg" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles/mugodhiTrustChurchCSS/contact.css">
+  <script src="scripts/mugodhiTrustChurchScripts/contact.js" defer></script>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/mugodhiTrustChurch/church-logo.jpg" alt="Church Logo" class="navbar-logo">
+      <span class="navbar-title">Mughodi Trust Church</span>
+    </div>
+
+    <!-- hamburger toggle -->
+    <div class="navbar-toggle" id="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- dropdown menu -->
+    <div class="navbar-center" id="navMenu">
+      <ul class="nav-links">
+        <li><a href="home.html"><i class="fas fa-home hollow"></i> Home</a></li>
+        <li><a href="about-us.html"><i class="far fa-heart"></i> About</a></li>
+        <li><a href="sermons.html"><i class="fas fa-book hollow"></i> Sermons</a></li>
+        <li><a href="events.html"><i class="far fa-calendar"></i> Events</a></li>
+        <li><a href="ministries.html"><i class="far fa-user"></i> Ministries</a></li>
+        <li><a href="contact.html" class="active-tab"><i class="fas fa-phone hollow"></i> Contact</a></li>
+        <button onclick="location.href='contact.html#contactForm'" class="navbar-plan-btn">Plan Your Visit</button>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- welcome section -->
+  <div class="welcome-section">
+    <img src="images/mugodhiTrustChurch/contact.jpg" alt="Back Image" class="back-video">
+    <div class="welcome">
+      <h1>Contact Us</h1>
+      <p>We're here to serve you! Whether you have questions, need prayer, or want to get involved, we'd love to hear
+        from you.
+      </p>
+    </div>
+  </div>
+
+  <br>
+  <!-- contact section -->
+  <section>
+    <div class="container grid grid-2">
+      <div class="contact-form" id="contactForm">
+        <h2 class="section-title move-up">Send Us a Message</h2>
+        <form action="https://formspree.io/f/mldpprzd" method="POST" id="messageForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <input type="text" id="name" name="fullName" required placeholder=" ">
+              <label for="name">Full Name *</label>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" name="email" required placeholder=" ">
+              <label for="email">Email Address *</label>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="phoneNumber" name="phoneNumber" placeholder=" ">
+              <label for="phoneNumber">Phone Number</label>
+            </div>
+
+            <div class="form-group">
+              <select id="subject" name="subject" required>
+                <option value="" disabled selected></option>
+                <option>General Inquiry</option>
+                <option>Prayer Request</option>
+                <option>Planning a Visit</option>
+                <option>Ministry Information</option>
+                <option>Join a Ministry</option>
+              </select>
+              <label for="subject">Subject</label>
+            </div>
+          </div>
+
+          <div class="form-group full-width">
+            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+            <label for="message">Message *</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p id="formStatus"></p>
+        </form>
+      </div>
+
+      <!-- contact info -->
+      <div class="contact-space">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-card">
+          <div class="contact-item">
+            <div><strong><i class="fas fa-map-marker-alt hollow"></i> &nbsp; Address</strong>
+              <p style="color: gray">123 Pearce St, Olifantsfontein, South Africa</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div><strong><i class="fas fa-phone hollow"></i> &nbsp; Phone</strong>
+              <p style="color: gray">+27 1673 346 2736</p>
+            </div>
+          </div>
+          <div class="contact-item"></i>
+            <div><strong><i class="fas fa-envelope hollow"></i> &nbsp; Email</strong>
+              <p style="color: gray">info@mughoditrust.org</p>
+            </div>
+          </div>
+          <div class="contact-item"></i>
+            <div><strong><i class="fas fa-clock hollow"></i>&nbsp; Office Hours</strong>
+              <p style="color: gray">Monday - Friday: 9:00 AM - 5:00 PM</p>
+            </div>
+          </div>
+
+          <h3 class="section-title" style="font-size:1.25rem;">Connect With Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook social-icon hollow"></i></a>
+            <a href="#"><i class="fab fa-instagram social-icon hollow"></i></a>
+            <a href="#"><i class="fab fa-twitter social-icon hollow"></i></a>
+            <a href="#"><i class="fab fa-youtube social-icon hollow"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- prayer -->
+  <section class="prayer">
+    <div class="container">
+      <br>
+      <h2 class="section-title" style="color:#fff;">Need a Prayer?</h2>
+      <p style="margin-bottom:1.5rem;">Our prayer team would love to pray for you. Submit your prayer requests online or
+        join us for our prayer meetings.</p>
+      <button onclick="location.href='contact.html#contactForm'" class="btn btn-secondary btn-lg">Submit Prayer
+        Request</button>
+    </div>
+  </section>
+
+  <section class="getting-here-section">
+    <div class="container grid grid-2">
+
+      <div class="directions-info">
+        <h2 class="section-title">Getting Here</h2>
+
+        <h4>By Public Transport</h4>
+        <p>Take a taxi at Score to the circle in Reginald Street, Olifantsfontein. The church is a 2-minute walk from
+          the circle.</p>
+
+        <h4>By Car</h4>
+        <p>Parking is available on-site. Enter through the main gate on Reginald.</p>
+
+        <h4>Landmarks</h4>
+        <p>Located near Olifantsfontein Park, opposite Olifantsfontein Clinic.</p>
+
+        <button class="btn btn-outline get-directions-map"
+          onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=Mughodi+Trust+Church,+Pretoria,+South+Africa', '_blank')">
+          Get Directions
+        </button>
+      </div>
+
+      <!-- map -->
+      <div class="map-info">
+        <h2 class="section-title">Find Us</h2>
+        <p class="map-description">Directions to our church</p>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229591.39626930424!2d28.06306199350819!3d-25.956048552008674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95630126de8653%3A0xb2ffdf5cf055348d!2sMugodhi%20Apostolic%20Faith%20Church!5e0!3m2!1sen!2sza!4v1759057089376!5m2!1sen!2sza"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="footer-container ">
+      <div class="footer-column">
+        <h4>Mughodi Trust Church</h4>
+        <p>A place of worship, community, and spiritual growth. Join us as we walk together in faith and love.</p>
+        <p><i class="fas fa-location-pin hollow"></i> 123 Pearce St, Olifantsfontein</p>
+        <p><i class="fas fa-phone hollow"></i> +27 673 346 2736</p>
+        <p><i class="far fa-envelope"></i> info@mughoditrust.org</p>
+      </div>
+
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <a href="home.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="sermons.html">Sermons</a>
+        <a href="events.html">Events</a>
+        <a href="ministries.html">Ministries</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Our Ministries</h4>
+        <a href="ministries.html#youth">Youth Ministry</a>
+        <a href="ministries.html#children">Children's Ministry</a>
+        <a href="ministries.html#women">Women's Ministry</a>
+        <a href="ministries.html#men">Men's Ministry</a>
+      </div>
+
+      <div class="footer-column">
+        <h4>Service Times</h4>
+        <p><b>Service Worship:</b> 9:00 AM</p>
+        <p><b>Bible Study:</b> 7:00 PM</p>
+        <p><b>Prayer Meeting:</b> Fri 6:00 AM</p>
+
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook social-icon hollow"></i></a>
+          <a href="#"><i class="fab fa-instagram social-icon hollow"></i></a>
+          <a href="#"><i class="fab fa-twitter social-icon hollow"></i></a>
+          <a href="#"><i class="fab fa-youtube social-icon hollow"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mughodi Trust Church. All rights reserved. Made with <i class="far fa-heart" style="color:red"></i>
+        for God's Kingdom</p>
+    </div>
+  </footer>
+  <script src="scripts/mugodhiTrustChurchScripts/contact.js"></script>
+</body>
+
+</html>

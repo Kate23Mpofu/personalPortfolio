@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game JavaScript</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        body {
+            display: flex;
+            padding: 0 10px;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #BAD6EB;
+        }
+
+        .container {
+            display: flex;
+            width: 850px;
+            gap: 70px;
+            padding: 60px 40px;
+            background: #fff;
+            border-radius: 10px;
+            align-items: flex-end;
+            justify-content: space-between;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hangman-box img {
+            user-select: none;
+            max-width: 270px;
+        }
+
+        .hangman-box h1 {
+            font-size: 1.45rem;
+            text-align: center;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .game-box .word-display {
+            gap: 10px;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .word-display .letter {
+            width: 28px;
+            font-size: 2rem;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #000;
+        }
+
+        .word-display .letter.guessed {
+            margin: -40px 0 35px;
+            border-color: transparent;
+        }
+
+        .game-box h4 {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .game-box h4 b {
+            font-weight: 600;
+        }
+
+        .game-box .guesses-text b {
+            color: red;
+        }
+
+        .game-box .keyboard {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        :where(.game-modal, .keyboard) button {
+            color: #fff;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            background: #7096D1;
+        }
+
+        .keyboard button {
+            padding: 7px;
+            width: calc(100% / 9 - 5px);
+        }
+
+        .keyboard button[disabled] {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        :where(.game-modal, .keyboard) button:hover {
+            background: #D0E3FF;
+            color: black;
+        }
+
+        .game-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            pointer-events: none;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 0 10px;
+            transition: opacity 0.4s ease;
+        }
+
+        .game-modal.show {
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.4s 0.4s ease;
+        }
+
+        .game-modal .content {
+            padding: 30px;
+            max-width: 420px;
+            width: 100%;
+            border-radius: 10px;
+            background: #fff;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-modal img {
+            max-width: 130px;
+            margin-bottom: 20px;
+        }
+
+        .game-modal img[src="images/hangman/victory.gif"] {
+            margin-left: -10px;
+        }
+
+        .game-modal h4 {
+            font-size: 1.53rem;
+        }
+
+        .game-modal p {
+            font-size: 1.15rem;
+            margin: 15px 0 30px;
+            font-weight: 500;
+        }
+
+        .game-modal p b {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+
+        .game-modal button {
+            padding: 12px 23px;
+        }
+
+        @media (max-width: 782px) {
+            .container {
+                flex-direction: column;
+                padding: 30px 15px;
+                align-items: center;
+            }
+
+            .hangman-box img {
+                max-width: 200px;
+            }
+
+            .hangman-box h1 {
+                display: none;
+            }
+
+            .game-box h4 {
+                font-size: 1rem;
+            }
+
+            .word-display .letter {
+                margin-bottom: 35px;
+                font-size: 1.7rem;
+            }
+
+            .word-display .letter.guessed {
+                margin: -35px 0 25px;
+            }
+
+            .game-modal img {
+                max-width: 120px;
+            }
+
+            .game-modal h4 {
+                font-size: 1.45rem;
+            }
+
+            .game-modal p {
+                font-size: 1.1rem;
+            }
+
+            .game-modal button {
+                padding: 10px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game-modal">
+        <div class="content">
+            <img src="#" alt="gif">
+            <h4>Game Over!</h4>
+            <p>The correct word was: <b>rainbow</b></p>
+            <button class="play-again">Play Again</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="hangman-box">
+            <img src="images/hangman/hangman-img.png" draggable="false" alt="hangman-img">
+            <h1>Hangman Game</h1>
+        </div>
+        <div class="game-box">
+            <ul class="word-display"></ul>
+            <h4 class="hint-text">Hint: <b></b></h4>
+            <h4 class="guesses-text">Incorrect guesses: <b></b></h4>
+            <div class="keyboard"></div>
+        </div>
+    </div>
+
+    <script>
+        const wordList = [
+            {
+                word: "sponge",
+                hint: "I am full Of holes, but I can hold water. Who am I?"
+            },
+            {
+                word: "piano",
+                hint: "What has many keys but cannot open a door?"
+            },
+            {
+                word: "tomorrow",
+                hint: "What is always coming but never arrives?"
+            },
+            {
+                word: "hole",
+                hint: "What is it that the more you take, the larger it becomes?"
+            },
+            {
+                word: "egg",
+                hint: "What cannot be used until it is broken?"
+            },
+            {
+                word: "ten",
+                hint: "How many legs does a lobster have?"
+            },
+            {
+                word: "thirty Two",
+                hint: "How many teeth does an adult human have?"
+            },
+            {
+                word: "honey",
+                hint: "What do bees produce?"
+            },
+            {
+                word: "seven",
+                hint: "How many colors are there in a rainbow? "
+            },
+            {
+                word: "the Nile",
+                hint: "What is the name of the longest river in the world?"
+            },
+            {
+                word: "cheetah",
+                hint: "What is the fastest animal?"
+            },
+            {
+                word: "camera",
+                hint: "A device used to capture and record images or videos."
+            },
+            {
+                word: "yellow",
+                hint: "What is the color of the school bus?"
+            },
+            {
+                word: "spongebob Squarepants",
+                hint: "Who lives in a pineapple under the sea?"
+            },
+            {
+                word: "seven",
+                hint: "How many days are there in a week?"
+            },
+            {
+                word: "lion",
+                hint: "Which animal is the king of the jungle?"
+            },
+            {
+                word: "february",
+                hint: "Which is the shortest month?"
+            },
+            {
+                word: "three",
+                hint: "How many sides are there in a triangle?"
+            },
+            {
+                word: "hexagon",
+                hint: "What shape has six sides?"
+            },
+            {
+                word: "eight",
+                hint: "How many legs does a spider have?"
+            },
+            {
+                word: "zoo",
+                hint: "What's the name of a place you go to see lots of animals?"
+            },
+            {
+                word: "ice",
+                hint: "If you freeze water, what do you get?"
+            },
+            {
+                word: "frozen",
+                hint: "Which Disney movie is Elsa in?"
+            },
+            {
+                word: "butterflies",
+                hint: "What do caterpillars turn into?"
+            },
+            {
+                word: "blue",
+                hint: "What color are the Smurfs?"
+            },
+            {
+                word: "spiderman",
+                hint: "Which superhero can climb up walls and buildings?"
+            },
+            {
+                word: "expensive",
+                hint: "What is the opposite of cheap?"
+            },
+            {
+                word: "astronaut",
+                hint: "A person trained to travel and work in space."
+            },
+            {
+                word: "giraffe",
+                hint: "Which animal is the tallest in the world?"
+            },
+            {
+                word: "bamboo",
+                hint: "What food do pandas eat?"
+            },
+            {
+                word: "cat",
+                hint: "Who is Tom in Tom & Jerry – the mouse or the cat?"
+            },
+            {
+                word: "teapot",
+                hint: "What begins with T ends with T and has T in it?"
+            },
+            {
+                word: "trouble",
+                hint: "What is easier to get into than out of?"
+            },
+            {
+                word: "vacation",
+                hint: "A period of time devoted to pleasure, rest, or relaxation."
+            },
+            {
+                word: "onion",
+                hint: "Remove my skin and I won’t cry, but you might!"
+            },
+            {
+                word: "age",
+                hint: "What goes up but never comes down?"
+            },
+            {
+                word: "telephone",
+                hint: "A device used to transmit sound over long distances."
+            },
+            {
+                word: "library",
+                hint: "What building has the most stories in the world?"
+            },
+            {
+                word: "candle",
+                hint: "I am taller when I am young, shorter when I am old. What am I?"
+            },
+            {
+                word: "name",
+                hint: "What is yours but mostly used by others?"
+            },
+            {
+                word: "coin",
+                hint: "What has a head and a tail but no body?"
+            },
+            {
+                word: "telescope",
+                hint: "An optical instrument used to view distant objects in space."
+            },
+            {
+                word: "fire",
+                hint: "Give me a drink, and I will die. Feed me, and I’ll get bigger. What am I?"
+            },
+            {
+                word: "soap",
+                hint: "I shrink smaller every time I take a bath. What am I?"
+            },
+            {
+                word: "photography",
+                hint: "The art, process, or practice of creating images by recording light or other electromagnetic radiation."
+            },
+            {
+                word: "river",
+                hint: "A large natural stream of water flowing in a channel to the sea, a lake, or another such stream."
+            },
+            {
+                word: "puzzle",
+                hint: "A game, toy, or problem designed to test ingenuity or knowledge."
+            },
+            {
+                word: "whisper",
+                hint: "To speak very softly or quietly, often in a secretive manner."
+            },
+            {
+                word: "shadow",
+                hint: "A dark area or shape produced by an object blocking the light."
+            },
+            {
+                word: "secret",
+                hint: "Something kept hidden or unknown to others."
+            },
+        ];
+
+        const wordDisplay = document.querySelector(".word-display");
+        const guessesText = document.querySelector(".guesses-text b");
+        const keyboardDiv = document.querySelector(".keyboard");
+        const hangmanImage = document.querySelector(".hangman-box img");
+        const gameModal = document.querySelector(".game-modal");
+        const playAgainBtn = gameModal.querySelector("button");
+
+        let currentWord, correctLetters, wrongGuessCount;
+        const maxGuesses = 6;
+
+        const resetGame = () => {
+            correctLetters = [];
+            wrongGuessCount = 0;
+            hangmanImage.src = "images/hangman/hangman-0.svg";
+            guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+            wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
+            keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
+            gameModal.classList.remove("show");
+        }
+
+        const getRandomWord = () => {
+            const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+            currentWord = word;
+            document.querySelector(".hint-text b").innerText = hint;
+            resetGame();
+        }
+
+        const gameOver = (isVictory) => {
+            const modalText = isVictory ? `You Won!` : 'The correct word was:';
+            gameModal.querySelector("img").src = `images/hangman/${isVictory ? 'victory' : 'lost'}.gif`;
+            gameModal.querySelector("h4").innerText = isVictory ? 'Congrats!' : 'Game Over!';
+            gameModal.querySelector("p").innerHTML = `${modalText} <b>${currentWord}</b>`;
+
+            if (!isVictory) {
+                hangmanImage.src = "images/hangman/hangman-img.png";
+            }
+
+            gameModal.classList.add("show");
+        }
+
+
+        const handleGuess = (letter) => {
+            if (currentWord.includes(letter)) {
+                correctLetters.push(letter);
+                wordDisplay.innerHTML = currentWord.split("").map(char =>
+                    correctLetters.includes(char.toLowerCase()) ? `<li class="letter guessed">${char}</li>` : `<li class="letter"></li>`
+                ).join("");
+
+                if (!wordDisplay.innerHTML.includes('<li class="letter"></li>')) {
+                    return gameOver(true);
+                }
+            } else {
+                wrongGuessCount++;
+                hangmanImage.src = `images/hangman/hangman-${wrongGuessCount}.svg`;
+                guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+
+
+                if (wrongGuessCount >= maxGuesses) {
+                    return gameOver(false);
+                }
+            }
+        }
+
+        keyboardDiv.addEventListener("click", function (event) {
+            const clickedBtn = event.target;
+
+            if (clickedBtn.tagName === "BUTTON") {
+                const letter = clickedBtn.innerText.toLowerCase();
+
+                clickedBtn.disabled = true;
+
+                handleGuess(letter);
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            const key = event.key.toLowerCase();
+            if (/^[a-z]$/.test(key)) {
+                handleGuess(key);
+            }
+        });
+
+        for (let i = 97; i <= 122; i++) {
+            const letter = String.fromCharCode(i);
+            const button = document.createElement("button");
+            button.innerText = letter;
+            button.setAttribute("data-letter", letter);
+            keyboardDiv.appendChild(button);
+        }
+
+        getRandomWord();
+        playAgainBtn.addEventListener("click", getRandomWord);
+
+    </script>
+</body>
+
+</html>

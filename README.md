@@ -99,6 +99,8 @@ A sample website created for a local church concept with structured content and 
 
 🔗 Repository: [Church-Website](https://github.com/Kate23Mpofu/Church-Website)
 
+🔗 Live Website: [View Live Website](https://mugodhi-trust-church-website.netlify.app/)
+
 ---
 
 ## 🎮 Hangman Game
